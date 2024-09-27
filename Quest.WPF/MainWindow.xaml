@@ -1,0 +1,32 @@
+﻿<Window x:Class="Quest.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Quest.WPF"
+        mc:Ignorable="d"
+        Title="Quest" Height="450" Width="800">
+    <Grid>
+        <ListView  Margin="50,79,50,121" Name="Reports">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="Status: " />
+                        <TextBlock Text="{Binding Status}" FontWeight="Bold" />
+                        <TextBlock Text=", " />
+                        <TextBlock Text="NumberOfComponenets: " />
+                        <TextBlock Text="{Binding NumberOfComponenets}" FontWeight="Bold" />
+                        <TextBlock Text=", " />
+                        <TextBlock Text="FileName: " />
+                        <TextBlock Text="{Binding FileName}" FontWeight="Bold" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label Name="IntervalLabel" Content="{Binding LabelContent}" HorizontalAlignment="Left" Margin="50,334,0,0" VerticalAlignment="Top" FontSize="14px" RenderTransformOrigin="0.5,-1.496"/>
+        <Label Name="ConcurentJobs" Content="{Binding LabelConcurrentJobs}" HorizontalAlignment="Left" Margin="50,359,0,0" VerticalAlignment="Top" FontSize="14px" RenderTransformOrigin="0.5,-1.496"/>
+        <Button Content="Run Engine" Name="RunEngineButton" Click="RunEngine" HorizontalAlignment="Left" Margin="683,39,0,0" VerticalAlignment="Top"/>
+        <Button Content="Stop Engine" Name="StopEngineButton" Click="StopEngine" HorizontalAlignment="Left" Margin="683,39,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
