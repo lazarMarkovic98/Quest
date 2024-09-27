@@ -6,10 +6,16 @@ using Quest.Infrastructure.Helper;
 using System.IO.Pipes;
 
 namespace Quest.Engine.Server.Implementations;
-public class Server(IEngine engine, IMapper mapper) : IServer
+public class Server : IServer
 {
-    private readonly IEngine _engine = engine;
-    private readonly IMapper _mapper = mapper;
+    private readonly IEngine _engine;
+    private readonly IMapper _mapper;
+
+    public Server(IEngine engine, IMapper mapper)
+    {
+        _engine = engine ?? throw new ArgumentNullException(nameof(engine));
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+    }
 
     public async Task HandleRequest(NamedPipeServerStream pipeServer)
     {

@@ -6,9 +6,13 @@ using Quest.Infrastructure.Helper;
 using Quest.Infrastructure.Models;
 
 namespace Quest.Engine.Implementations;
-public class Engine(QuestDbContext dbContext) : IEngine
+public class Engine : IEngine
 {
-    private readonly QuestDbContext _dbContext = dbContext;
+    private readonly QuestDbContext _dbContext;
+    public Engine(QuestDbContext dbContext)
+    {
+        _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+    }
     private async Task ProcessFiles(CheckFilesInputDto request)
     {
         List<string> files = new List<string>();
