@@ -41,7 +41,7 @@ public class Client : IClient
                 writer.WriteLine(messageToSend);
 
                 string serverResponse = reader.ReadLine()!;
-                result = serverResponse is not null ? JsonConvert.DeserializeObject<ObservableCollection<ResultDto>>(serverResponse): [];
+                result = serverResponse is not null ? JsonConvert.DeserializeObject<ObservableCollection<ResultDto>>(serverResponse): new();
 
             }
         }

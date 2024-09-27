@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Quest.Engine;
 using Quest.Engine.Configuration;
 using Quest.Engine.Server.Interfaces;
 using System.IO.Pipes;
@@ -18,7 +17,7 @@ while (true)
 
     Console.WriteLine("Client connected.");
     var server = services.GetRequiredService<IServer>();
-    
+
     Thread clientThread = new Thread(() => server.HandleRequest(pipeServer));
     clientThread.Start();
 }
